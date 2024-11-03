@@ -29,6 +29,8 @@ let getHumanChoice = () => {
     }
     else {
         alert("Invalid choice!");
+        // choice = ""; // fix later >_>
+        // getHumanChoice();
         location.reload();
     }
 }
@@ -107,6 +109,16 @@ function playRound(humanChoice, computerChoice){
 while (rounds < 5){
 playRound(getHumanChoice(), getComputerChoice());
 ++rounds;
+}
+
+if (humanScore > computerScore){
+    alert("Player has won!");
+}
+else if (computerScore > humanScore){
+    alert("Computer has won!");
+}
+else{
+    alert("A draw!");
 }
 
 /*
