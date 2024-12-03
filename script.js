@@ -1,6 +1,30 @@
 let humanScore = 0;
 let computerScore = 0;
-let rounds = 0
+// let rounds = 0
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorButton = document.querySelector("#scissors");
+const buttonsDiv = document.querySelector("#buttons");
+
+buttonsDiv.addEventListener("click", (event) => {
+    let target = event.target;
+
+    switch (target.id){
+        case 'rock':
+            console.log("it works");
+            break;
+        case 'paper':
+            console.log("Paper!");
+            break;
+        case 'scissors':
+            console.log("Scissors!");
+            break;
+        case _:
+            console.log("Invalid!");
+            break;
+    }
+});
 
 let getComputerChoice = () => {
     randNum = Math.floor(Math.random() * 3);
@@ -21,7 +45,6 @@ let getComputerChoice = () => {
 }
 
 let getHumanChoice = () => {
-    choice = prompt("Rock, Paper, Scissors!").toLowerCase();
 
     if (choice === "rock" || choice === "paper" || choice === "scissors"){
         console.log("You played: " + choice);
@@ -34,6 +57,7 @@ let getHumanChoice = () => {
         location.reload();
     }
 }
+
 
 function playRound(humanChoice, computerChoice){
     let hasWon = false;
@@ -106,38 +130,18 @@ function playRound(humanChoice, computerChoice){
     console.log("Your score is " + humanScore + " !");
 }
 
-while (rounds < 5){
-playRound(getHumanChoice(), getComputerChoice());
-++rounds;
-}
 
-if (humanScore > computerScore){
-    alert("Player has won!");
-}
-else if (computerScore > humanScore){
-    alert("Computer has won!");
-}
-else{
-    alert("A draw!");
-}
+// while (rounds < 5){
+// playRound(getHumanChoice(), getComputerChoice());
+// ++rounds;
+// }
 
-/*
- @todo: make it so that getComputerChoice returns either
- rock, paper, or scissors
-- Make sure it returns 1, 2 or 3
- - Make it return a string
- */
-
- /*
- @todo: 
-create a function for player input
-create a variable to store the players input
-compare this input to "Rock", "Paper", or "Scissors"
-if the comparison is true, return the choice
-if the comparison is NOT true, prompt again
-
- */
-
-/*
-Add variables for human and computer score
-*/
+// if (humanScore > computerScore){
+//     alert("Player has won!");
+// }
+// else if (computerScore > humanScore){
+//     alert("Computer has won!");
+// }
+// else{
+//     alert("A draw!");
+// }
