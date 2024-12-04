@@ -1,25 +1,26 @@
 let humanScore = 0;
 let computerScore = 0;
-// let rounds = 0
+let choice = "";
+let rounds = 1
 
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorButton = document.querySelector("#scissors");
 const buttonsDiv = document.querySelector("#buttons");
 
-buttonsDiv.addEventListener("click", (event) => {
+let playerChoice = buttonsDiv.addEventListener("click", (event) => {
     let target = event.target;
 
     switch (target.id){
         case 'rock':
-            console.log("it works");
-            break;
+            choice = "rock";
+            return choice;
         case 'paper':
-            console.log("Paper!");
-            break;
+            choice = "paper";
+            return choice;
         case 'scissors':
-            console.log("Scissors!");
-            break;
+            choice = "scissors";
+            return choice;
         case _:
             console.log("Invalid!");
             break;
@@ -31,90 +32,63 @@ let getComputerChoice = () => {
     switch (randNum){
     case 0:
         console.log("The computer played: rock!");
-        return "Rock";
+        return "rock";
     case 1:
         console.log("The computer played: paper!");
-        return "Paper";
+        return "rock";
     case 2:
         console.log("The computer played: scissors!");
-        return "Scissors";
+        return "rock";
     default:
         alert("Invalid!!");
         break;
     }
 }
 
-let getHumanChoice = () => {
-
-    if (choice === "rock" || choice === "paper" || choice === "scissors"){
-        console.log("You played: " + choice);
-        return choice;
-    }
-    else {
-        alert("Invalid choice!");
-        // choice = ""; // fix later >_>
-        // getHumanChoice();
-        location.reload();
-    }
-}
-
-
-function playRound(humanChoice, computerChoice){
+function playRound(pChoice, cChoice){
     let hasWon = false;
     let hasLost = false;
-    switch(humanChoice){
+    switch (pChoice){
         case "rock":
-            if  (computerChoice === "Rock"){
-                console.log("Tie!");
-                break;
-            }
-            else if (computerChoice === "Paper"){
-                console.log("Lose!");
+            if (cChoice === "paper"){
+                console.log("Lost!");
                 hasLost = true;
                 break;
             }
-            else if (computerChoice === "Scissors"){
-                console.log("Win!");
+            else if (cChoice === "scissors"){
+                console.log("Won!");
                 hasWon = true;
                 break;
             }
-
         case "paper":
-            if (computerChoice === "Rock"){
-                console.log("Win!");
+            if (cChoice === "rock"){
+                console.log("Won!");
                 hasWon = true;
                 break;
             }
-            else if (computerChoice === "Paper"){
-                console.log("Tie!");
+            else if (cChoice === "scissors"){
+                console.log("Lost!");
+                hasWon = false;
                 break;
             }
-            else if (computerChoice === "Scissors"){
-                console.log("Lose!");
-                hasLost = true;
-                break;
-            }
-
         case "scissors":
-            if (computerChoice === "Rock"){
-                console.log("Lose!");
-                hasLost = true;
-                break;
-            }
-            else if (computerChoice === "Paper"){
-                console.log("Win!");
+            if (cChoice === "paper"){
+                console.log("Won!");
                 hasWon = true;
                 break;
             }
-            else if (computerChoice === "Scissors"){
-                console.log("Tie!");
+            else if (cChoice === rock){
+                console.log("Lost!");
+                hasLost = true;
                 break;
             }
-
-        default:
-            alert("Invalid option!");
+        case (pChoice === cChoice):
+            console.log("Draw!");
             break;
-}
+        default:
+            alert("Nah");
+            break;
+    }
     if (hasWon === true){
         ++humanScore;
     }
@@ -122,26 +96,11 @@ function playRound(humanChoice, computerChoice){
         ++computerScore;
     }
     else{
-        computerScore;
         humanScore;
+        computerScore;
     }
 
-    console.log("The computers score is " + computerScore + " !");
-    console.log("Your score is " + humanScore + " !");
+    console.log(`Human score ${humanScore}`);
+    console.log(`Computer score ${computerScore}`);
 }
 
-
-// while (rounds < 5){
-// playRound(getHumanChoice(), getComputerChoice());
-// ++rounds;
-// }
-
-// if (humanScore > computerScore){
-//     alert("Player has won!");
-// }
-// else if (computerScore > humanScore){
-//     alert("Computer has won!");
-// }
-// else{
-//     alert("A draw!");
-// }
