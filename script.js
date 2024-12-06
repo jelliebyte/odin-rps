@@ -1,7 +1,7 @@
 let humanScore = 5;
 let computerScore = 0;
 let choice = "";
-let rounds = 1
+let rounds = 5
 
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
@@ -102,12 +102,8 @@ function playRound(pChoice, cChoice){
     cScoreCounter.textContent = `Computer score ${computerScore}`;
 }
 
-if (humanScore || computerScore < 5){
-    buttonsDiv.addEventListener("click", (event) => {
-        let target = event.target;
-        playRound(target.id, getComputerChoice());
+buttonsDiv.addEventListener("click", (event) => {
+    let target = event.target;
+    console.log(target.id);
+    playRound(target.id, getComputerChoice());
     });
-}
-if (humanScore > computerScore){
-    console.log("Done!");
-}

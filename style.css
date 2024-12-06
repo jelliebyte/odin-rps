@@ -19,6 +19,24 @@ html {
     justify-content: space-around;
 }
 
+#rock img {
+    pointer-events: none;
+    width: 200px;
+    padding: 5px;
+}
+
+#paper img {
+    pointer-events: none;
+    width: 200px;
+    padding: 5px;
+}
+
+#scissors img {
+    pointer-events: none;
+    width: 200px;
+    height: auto;
+}
+
 button {
     width: 300px;
     height: 200px;
