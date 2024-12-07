@@ -107,3 +107,5 @@ buttonsDiv.addEventListener("click", (event) => {
     console.log(target.id);
     playRound(target.id, getComputerChoice());
     });
+
+//polish
